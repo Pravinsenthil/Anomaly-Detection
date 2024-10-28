@@ -26,6 +26,9 @@ The goal of this project is to develop a Python script capable of detecting anom
 
 └── anomaly.log              **Log file for recorded anomalies**
 
+## Output
+- Output for the respective code is displayed in the images 'Figure_1.png' and 'Fig_2.png' respectively.
+
 ## Requirements
 - Python 3.x
 - Libraries:
