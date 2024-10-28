@@ -17,13 +17,11 @@ The goal of this project is to develop a Python script capable of detecting anom
 - **Visualization**: Visualizes incoming data points and highlights detected anomalies in real-time.
 
 
-## Executing model and structure of the code present
-
 ├── model_training.py        # Script to train the Isolation Forest model
 ├── anomaly_detection.py      # Script for real-time anomaly detection 
 ├── settings.py              # Configuration file with constants 
 ├── requirements.txt         # List of required Python libraries 
-└── anomaly.log              # Log file for recorded anomalies 
+└── anomaly.log              # Log file for recorded anomalies
 
 ## Requirements
 - Python 3.x
