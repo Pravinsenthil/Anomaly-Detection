@@ -18,9 +18,13 @@ The goal of this project is to develop a Python script capable of detecting anom
 
 #
 ├── model_training.py        # Script to train the Isolation Forest model
+#
 ├── anomaly_detection.py      # Script for real-time anomaly detection 
+#
 ├── settings.py              # Configuration file with constants 
+#
 ├── requirements.txt         # List of required Python libraries 
+#
 └── anomaly.log              # Log file for recorded anomalies
 
 ## Requirements
