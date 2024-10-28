@@ -1,80 +1,39 @@
-# Anomaly-Detection
+# Efficient Data Stream Anomaly Detection
 
-# Project Title
-	Efficient Data Stream Anomaly Detection
- 
+## Project Description
+The goal of this project is to develop a Python script capable of detecting anomalies in a continuous data stream. This stream simulates real-time sequences of floating-point numbers, which could represent various metrics such as financial transactions or system metrics. The focus is on identifying unusual patterns, such as exceptionally high values or deviations from the norm.
 
-# Project Description:
-	**bold text** Your task is to develop a Python script capable of detecting anomalies in a continuous data stream. This stream, simulating real-time sequences of floating-point numbers, could represent various metrics such as financial transactions or system metrics. Your focus will be on identifying unusual patterns, such as exceptionally high values or deviations from the norm.
+## Objectives
+1. **Algorithm Selection**: Identify and implement a suitable algorithm for anomaly detection that can adapt to concept drift and seasonal variations.
+2. **Data Stream Simulation**: Design a function to emulate a data stream, incorporating regular patterns, seasonal elements, and random noise.
+3. **Anomaly Detection**: Develop a real-time mechanism to accurately flag anomalies as the data is streamed.
+4. **Optimization**: Ensure the algorithm is optimized for both speed and efficiency.
+5. **Visualization**: Create a straightforward real-time visualization tool to display both the data stream and any detected anomalies.
 
-## Objectives:
-## Algorithm Selection: 
-The Isolation Forest algorithm is implemented in model.py.
-This algorithm is well-suited for anomaly detection particularly in high-dimensional datasets and can adapt to concept drift by retraining periodically as new data arrives.
-
-## Data Stream Simulation: 
-Enhancing the anomaly_detect.py file by adding a function that simulates a data stream with regular patterns , seasonal elements, and random noise.
-#
-import numpy as np
-import pandas as pd
-
-def generate_data_stream(num_points=1000, seasonality=50, noise_level=0.1):
-    time = np.arange(num_points)
-    seasonal_pattern = np.sin(2 * np.pi * time / seasonality)  # Seasonal pattern
-    noise = np.random.normal(0, noise_level, num_points)  # Random noise
-    data_stream = seasonal_pattern + noise
-    return pd.Series(data_stream)
-
-## Anomaly Detection:
-Generated data stream and flag anomalies can be successfully finding out in real time.
-
-from sklearn.ensemble import IsolationForest
-import logging
-import time
-
-# Initialize logging
-logging.basicConfig(filename='anomaly.log', level=logging.INFO)
-
-def anomaly_dect():
-    # Load or train the Isolation Forest model here if necessary
-    model = load('isolation_forest.joblib')
-    
-    # Simulate a data stream
-    data_stream = generate_data_stream()
-    
-    for value in data_stream:
-        # Reshape value for prediction
-        prediction = model.predict([[value]])
-        
-        if prediction == -1:  # Anomaly detected
-            logging.info(f'Anomaly detected: {value}')
-        
-        # Optionally visualize here if VISUALIZATION is enabled
-        
-        time.sleep(DELAY)  # Delay between iterations for real-time simulation
+## Features
+- **Anomaly Detection with Isolation Forest**: Utilizes the Isolation Forest algorithm from scikit-learn for effective anomaly detection.
+- **Real-Time Data Simulation**: Generates synthetic data that mimics real-world scenarios.
+- **Logging**: Logs detected anomalies for further analysis.
+- **Visualization**: Visualizes incoming data points and highlights detected anomalies in real-time.
 
 
-## Optimization: 
+## Executing model and structure of the code present
 
-# Speed and Efficiency
-# Batch Processing: Instead of checking each point individually, we are  accumulating a batch of points and then perform predictions on that batch to improve efficiency.
+├── model_training.py        # Script to train the Isolation Forest model
+├── anomaly_detection.py      # Script for real-time anomaly detection 
+├── settings.py              # Configuration file with constants 
+├── requirements.txt         # List of required Python libraries 
+└── anomaly.log              # Log file for recorded anomalies 
 
-# Model Retraining: Implementing logic to retrain the model periodically (e.g., every N iterations or after receiving a certain amount of new data) to ensure it adapts to any concept drift.
+## Requirements
+- Python 3.x
+- Libraries:
+  - NumPy
+  - scikit-learn
+  - Matplotlib
+  - Joblib
 
-# Memory Management: Using  a sliding window approach to keep only the most recent data points for training and predictions.
+You can install the required libraries using the following command:
 
-## Visualization: .
-RealTime Visualization Tool:
-
-We are enhancing the visualizing capabilities by integrating Matplotlib directly into the anomaly detection loop.
-
-
-## Requirements:
-The project must be implemented using Python 3.x.
-Your code should be thoroughly documented, with comments to explain key sections.
-Include a concise explanation of your chosen algorithm and its effectiveness.
-Ensure robust error handling and data validation.
-Limit the use of external libraries. If necessary, include a requirements.txt file.
-
-
-
+```bash
+pip install -r requirements.txt
